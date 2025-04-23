@@ -14,12 +14,7 @@ function App() {
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<Home />} />
-            <Route path="general/*" element={<ComponentPage />} />
-            <Route path="layout/*" element={<ComponentPage />} />
-            <Route path="navigation/*" element={<ComponentPage />} />
-            <Route path="data-entry/*" element={<ComponentPage />} />
-            <Route path="data-display/*" element={<ComponentPage />} />
-            <Route path="feedback/*" element={<ComponentPage />} />
+            <Route path=":category/:component" element={<ComponentPage />} />
             <Route path="colors/:type" element={<ColorPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

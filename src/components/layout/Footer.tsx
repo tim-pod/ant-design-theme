@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <Text type="secondary">
-        © {new Date().getFullYear()} Design System • Built with Ant Design • All Rights Reserved
+        {new Date().getFullYear()} Design System • Built with Ant Design
       </Text>
     </StyledFooter>
   );

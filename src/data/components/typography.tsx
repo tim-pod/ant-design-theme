@@ -1,9 +1,8 @@
-import React from 'react';
 import { Typography, Space, Divider } from 'antd';
 import ComponentCard from '../../components/common/ComponentCard';
 import PropertyTable from '../../components/common/PropertyTable';
 
-const { Title, Text, Paragraph, Link } = Typography;
+const { Title, Text, Paragraph } = Typography;
 
 const TypographyContent = () => {
   const titleSnippet = {

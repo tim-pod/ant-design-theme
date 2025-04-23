@@ -1,14 +1,51 @@
-import React from 'react';
 import ColorCard from '../components/common/ColorCard';
 import colors from '../theme/colors';
+import { Card, Typography } from 'antd';
+import styled from 'styled-components';
+const { Title } = Typography;
+
+const ColorGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+`;
+
+const ColorSwatch = styled.div<{ $bg: string }>`
+  background-color: ${(props) => props.$bg};
+  height: 80px;
+  width: 80px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+`;
 
 const colorData = [
   {
     key: 'primary',
-    title: 'Primary Colors',
-    description: 'Primary colors are the main colors used throughout the application. They represent the brand identity and are used for primary actions, key UI elements, and to create visual consistency.',
+    title: 'Color System',
+    description: 'The color system includes primary colors, warm and cool secondary colors, and neutrals.',
     content: (
       <>
+      <Card style={{ marginTop: '48px' }}>
+        
+        <Title level={5} style={{ marginTop: '24px' }}>Main Theme</Title>
+        <ColorGrid>
+          <ColorSwatch $bg={colors.primary.red} />
+          <ColorSwatch $bg={colors.primary.black} />
+          <ColorSwatch $bg={colors.primary.white} style={{ border: `1px solid ${colors.neutrals[300]}` }} />
+        </ColorGrid>
+        
+        <Title level={5} style={{ marginTop: '24px' }}>Secondary Colors</Title>
+        <ColorGrid>
+          <ColorSwatch $bg={colors.secondaryWarm.red} />
+          <ColorSwatch $bg={colors.secondaryWarm.orange} />
+          <ColorSwatch $bg={colors.secondaryWarm.yellow} />
+          <ColorSwatch $bg={colors.secondaryCool.navy} />
+          <ColorSwatch $bg={colors.secondaryCool.blue} />
+          <ColorSwatch $bg={colors.secondaryCool.turquoise} />
+        </ColorGrid>
+        
+      </Card>
         <ColorCard
           title="Primary Red"
           colors={[

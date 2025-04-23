@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { Result } from 'antd';
 import components from '../data/components';
 import PageHeader from '../components/common/PageHeader';
-import { ArrowLeftOutlined } from '@ant-design/icons';
 import BackButton from '../components/common/BackButton';
 
 const ComponentPage: React.FC = () => {
-  const { category, component } = useParams<{ category: string; component: string }>();
+  const { component } = useParams<{ component: string }>();
+  const category = window.location.pathname.split('/')[1];
   
   // Find the component data
   const componentData = components.find(
