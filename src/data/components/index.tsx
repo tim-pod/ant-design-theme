@@ -2,6 +2,7 @@ import React from 'react';
 import ButtonsContent from './buttons';
 import TypographyContent from './typography';
 import InputContent from './input';
+import SidebarContent from './sidebar';
 
 const components = [
   {
@@ -44,6 +45,14 @@ const components = [
       'Use disabled state when input is not available.'
     ],
     content: <InputContent />,
+  },
+  {
+    category: 'layout',
+    key: 'sidebar',
+    title: 'Sidebar',
+    description: '',
+    guidelines: [],
+    content: <SidebarContent />,
   },
 ];
 

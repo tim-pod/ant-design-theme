@@ -31,7 +31,9 @@ const ComponentPage: React.FC = () => {
   
   return (
     <div>
-      <PageHeader title={title} description={description} guidelines={guidelines} />
+      {component !== 'sidebar' && (
+        <PageHeader title={title} description={description} guidelines={guidelines} />
+      )}
       {content}
     </div>
   );

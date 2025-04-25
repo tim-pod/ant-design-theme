@@ -18,7 +18,7 @@ const categories = [
   {
     key: 'layout',
     title: 'Layout',
-    components: ['Flex', 'Grid', 'Space', 'Divider', 'Layout'],
+    components: ['Sidebar', 'Grid', 'Space', 'Divider'],
   },
   {
     key: 'navigation',

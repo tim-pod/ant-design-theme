@@ -173,6 +173,13 @@ const themeAntd = {
       colorPrimaryHover: colors.primary.white,
       controlHeight: 32,
     },
+    Menu: {
+      colorItemBg: colors.primary.white,
+      colorItemText: colors.primary.black,
+      colorItemBgHover: 'transparent',
+      colorItemTextDisabled: colors.neutrals[500],
+      colorSubItemBg: colors.neutrals[100],
+    },
   },
   token: {
     colorPrimary: colors.primary.red,

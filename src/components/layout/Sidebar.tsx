@@ -1,11 +1,9 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { ComponentCategory } from '../../types';
 import colors from '../../theme/colors';
-
-const { Sider } = Layout;
 
 type SidebarProps = {
   categories: ComponentCategory[];
@@ -13,44 +11,13 @@ type SidebarProps = {
   onCollapse: (collapsed: boolean) => void;
 };
 
-const StyledSider = styled(Sider)`
+const SidebarWrapper = styled.div`
   position: fixed;
   height: calc(100vh - 64px);
   left: 0;
   top: 64px;
-  overflow: auto;
-  background-color: ${colors.primary.white};
+  width: 220px;
   border-right: 1px solid ${colors.neutrals[300]};
-  
-  .ant-menu {
-    border-right: none;
-  }
-  
-  .ant-menu-item {
-    transition: all 0.2s ease;
-    
-    &:hover {
-      background-color: ${colors.neutrals[200]};
-    }
-    
-    &.ant-menu-item-selected {
-      background-color: ${colors.red[50]};
-      color: ${colors.primary.red};
-      font-weight: 500;
-      
-      &::after {
-        border-right-color: ${colors.primary.red};
-      }
-    }
-  }
-  
-  .ant-menu-submenu-title:hover {
-    background-color: ${colors.neutrals[200]};
-  }
-  
-  .ant-menu-submenu-selected > .ant-menu-submenu-title {
-    color: ${colors.primary.red};
-  }
 `;
 
 const Sidebar: React.FC<SidebarProps> = ({ categories, collapsed, onCollapse }) => {
@@ -84,22 +51,21 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, collapsed, onCollapse }) 
   };
   
   return (
-    <StyledSider 
-      width={220} 
-      collapsible 
-      collapsed={collapsed} 
-      onCollapse={onCollapse}
-      collapsedWidth={0}
-      breakpoint="lg"
-    >
+    <SidebarWrapper>
       <Menu
         mode="inline"
+        theme="light"
         defaultOpenKeys={getDefaultOpenKeys()}
         selectedKeys={getSelectedKey()}
-        style={{ height: '100%', borderRight: 0 }}
+        style={{ 
+          height: '100%', 
+          borderRight: 0,
+          background: colors.primary.white  // explicitly set background
+        }}
+        inlineCollapsed={collapsed}
         items={getMenuItems()}
       />
-    </StyledSider>
+    </SidebarWrapper>
   );
 };
 
