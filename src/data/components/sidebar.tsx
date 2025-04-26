@@ -29,7 +29,7 @@ interface LogoContainerProps {
 
 const SidebarContainer = styled.div<ContainerProps>`
   position: relative;
-  width: ${props => props.$isPinned ? '224px' : '80px'};
+  width: ${props => props.$isPinned ? '224px' : '48px'};
   transition: width 0.2s;
 
   &:hover {
@@ -56,7 +56,6 @@ const LogoContainer = styled.div<LogoContainerProps>`
     width: auto;
     transition: transform 0.2s;
     transform: ${props => props.$isExpanded ? 'rotate(0deg)' : 'rotate(90deg)'};
-    margin-left: 15px;
   }
 `;
 
@@ -107,8 +106,8 @@ const CollapsibleSidebarDemo = () => {
   const shouldExpand = isPinned || isHovered;
 
   const items: MenuItem[] = [
-    { key: 'homer', icon: <HomeOutlined />, label: 'Homer' },
-    { key: '2', icon: <UserOutlined />, label: 'Profile' },
+    { key: '1', icon: <HomeOutlined />, label: 'My Dashboard' },
+    { key: '2', icon: <UserOutlined />, label: 'My Library' },
     { type: 'divider' },  // Replace Documents with a divider
     {
       key: 'sub1',
@@ -150,9 +149,10 @@ const CollapsibleSidebarDemo = () => {
         theme="light"
         inlineCollapsed={!shouldExpand}
         style={{ 
-          height: 'calc(100% - 48px)',  // Adjust for header height
+          height: 'calc(100% - 48px)',
           borderRight: 0,
-          background: colors.primary.white
+          background: colors.primary.white,
+          width: shouldExpand ? '100%' : '48px'
         }}
         items={items}
       />
