@@ -66,24 +66,9 @@ const StyledContent = styled(Content)<{ $sidebarCollapsed: boolean }>`
 
 const MainLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  
-  const handleSearch = (value: string) => {
-    setSearchQuery(value);
-  };
-  
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
   
   return (
     <StyledLayout>
-      <Header 
-        onSearch={handleSearch} 
-        isDarkMode={isDarkMode} 
-        toggleDarkMode={toggleDarkMode} 
-      />
       <Layout>
         <Sidebar 
           categories={categories} 
